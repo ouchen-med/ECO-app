@@ -8,8 +8,9 @@ function App() {
   return (
     <>
       <header>
-        <TopHeader></TopHeader>
         <BtmHeader></BtmHeader>
+        <TopHeader></TopHeader>
+
       </header>
       <Home></Home>
 

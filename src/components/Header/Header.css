@@ -157,8 +157,10 @@
     background: var(--main-color);
     padding: 0;
     position: relative;
+    margin-bottom: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 
 .btm_header .container {
     display: flex;
@@ -221,6 +223,7 @@
     width: 220px;
     margin: 20px 0 0 20px;
     background: var(--white-color);
+
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     padding: 12px 0;
