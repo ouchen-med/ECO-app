@@ -20,7 +20,7 @@
     content: '';
     position: absolute;
     bottom: -1px;
-    width: 100%;
+    width: 10%;
     height: 2px;
     background: var(--main-color);
 }
