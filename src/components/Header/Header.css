@@ -10,12 +10,14 @@
 /* ---------------- Top Header ---------------- */
 .top_header {
     width: 100%;
+    height: auto;
+    min-height: 150px;
     background: var(--white-color);
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    position: sticky;
-    top: 0;
+    top: 0px;
     z-index: 1000;
     transition: all 0.3s ease;
+    position: fixed;
 }
 
 /* Container flex */
@@ -26,6 +28,7 @@
     padding: 15px 30px;
     max-width: 1200px;
     margin: auto;
+    flex-wrap: wrap;
 }
 
 /* Logo */
@@ -34,6 +37,8 @@
     height: 160px;
     transition: transform 0.3s ease, filter 0.3s ease;
     cursor: pointer;
+    max-width: 100%;
+    height: auto;
 }
 
 .container .logo img:hover {
@@ -46,12 +51,15 @@
     display: flex;
     align-items: center;
     width: 450px;
+    max-width: 100%;
     background: var(--bg-color);
     border-radius: 50px;
     border: 1px solid var(--border-color);
     padding: 5px 10px;
     transition: all 0.3s ease;
     overflow: hidden;
+    flex-shrink: 1;
+    min-width: 200px;
 }
 
 .search_box:hover {
@@ -69,6 +77,7 @@
     font-size: 16px;
     background: transparent;
     color: var(--color-heading);
+    width: 100%;
 }
 
 .search_box button {
@@ -77,12 +86,14 @@
     color: var(--white-color);
     height: 40px;
     width: 40px;
+    min-width: 40px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .search_box button:hover {
@@ -95,6 +106,7 @@
     display: flex;
     align-items: center;
     gap: 20px;
+    flex-wrap: wrap;
 }
 
 .header_icons .icon {
@@ -122,45 +134,17 @@
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive */
-@media screen and (max-width: 1024px) {
-    .search_box {
-        width: 350px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .top_header .container {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding: 15px 20px;
-    }
-
-    .search_box {
-        width: 100%;
-        max-width: 500px;
-    }
-
-    .header_icons {
-        justify-content: center;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-}
-
-
-
-/* btm ___________________---- header style : */
-/* Bottom Header Styles */
+/* Bottom Header */
 .btm_header {
     background: var(--main-color);
     padding: 0;
-    position: relative;
-    margin-bottom: 10px;
+    position: fixed;
+    top: 150px;
+    left: 0;
+    width: 100%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 19999;
 }
-
 
 .btm_header .container {
     display: flex;
@@ -169,6 +153,7 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 20px;
+    flex-wrap: wrap;
 }
 
 .btm_header .nav {
@@ -176,6 +161,7 @@
     align-items: center;
     gap: 40px;
     flex: 1;
+    flex-wrap: wrap;
 }
 
 /* Category Navigation */
@@ -189,15 +175,13 @@
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
+    flex-shrink: 0;
 }
 
 .category_nav:hover {
     background-color: rgba(255, 255, 255, 0.2);
-
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
-
-
 
 .category_nav svg {
     font-size: 22px;
@@ -213,8 +197,6 @@
     margin: 0;
 }
 
-
-
 /* Category Dropdown List */
 .category_nav_list {
     position: absolute;
@@ -223,7 +205,6 @@
     width: 220px;
     margin: 20px 0 0 20px;
     background: var(--white-color);
-
     border-radius: 12px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
     padding: 12px 0;
@@ -287,6 +268,7 @@
     display: flex;
     align-items: center;
     gap: 32px;
+    flex-wrap: wrap;
 }
 
 .nav_link a {
@@ -298,6 +280,7 @@
     position: relative;
     padding: 20px 0;
     transition: all 0.3s ease;
+    white-space: nowrap;
 }
 
 .nav_link a::after {
@@ -332,6 +315,7 @@
     align-items: center;
     gap: 16px;
     margin-left: 20px;
+    flex-shrink: 0;
 }
 
 .sign_regs_icon a {
@@ -346,6 +330,7 @@
     border-radius: 50%;
     color: var(--white-color);
     transition: all 0.3s ease;
+    flex-shrink: 0;
 }
 
 .sign_regs_icon a svg {
@@ -359,12 +344,23 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* ==================== RESPONSIVE BREAKPOINTS ==================== */
 
+/* Large Desktop (1200px and above) */
+@media screen and (min-width: 1200px) {
+    .top_header .container {
+        max-width: 1200px;
+    }
 
-/* Tablet (1024px and below) */
-@media (max-width: 1024px) {
     .btm_header .container {
-        padding: 0 15px;
+        max-width: 1400px;
+    }
+}
+
+/* Desktop (1024px to 1199px) */
+@media screen and (max-width: 1199px) and (min-width: 1025px) {
+    .search_box {
+        width: 350px;
     }
 
     .btm_header .nav {
@@ -374,6 +370,38 @@
     .nav_link {
         gap: 20px;
     }
+}
+
+/* Tablet Landscape (768px to 1024px) */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .top_header .container {
+        padding: 15px 20px;
+    }
+
+    .search_box {
+        width: 300px;
+    }
+
+    .container .logo img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .header_icons {
+        gap: 15px;
+    }
+
+    .btm_header .container {
+        padding: 0 15px;
+    }
+
+    .btm_header .nav {
+        gap: 20px;
+    }
+
+    .nav_link {
+        gap: 15px;
+    }
 
     .nav_link a {
         font-size: 14px;
@@ -381,7 +409,7 @@
     }
 
     .category_nav {
-        padding: 14px 20px;
+        padding: 14px 18px;
     }
 
     .category_nav p {
@@ -389,24 +417,56 @@
     }
 
     .category_nav_list {
-        width: 240px;
-    }
-
-    .sign_regs_icon a {
-        width: 44px;
-        height: 44px;
+        width: 200px;
     }
 }
 
-/* Tablet (768px and below) */
-@media (max-width: 768px) {
-    .mobile_menu_toggle {
-        display: block;
+/* Tablet Portrait (600px to 768px) */
+@media screen and (max-width: 768px) and (min-width: 601px) {
+    .top_header {
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .top_header .container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 15px;
+    }
+
+    .container .logo img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .search_box {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .header_icons {
+        justify-content: center;
+        gap: 20px;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .btm_header {
+        top: auto;
+        position: relative;
+        margin-top: 0;
+    }
+
+    .btm_header .container {
+        flex-direction: column;
+        padding: 10px;
     }
 
     .btm_header .nav {
-        gap: 15px;
+        width: 100%;
         justify-content: space-between;
+        gap: 10px;
     }
 
     .nav_link {
@@ -418,11 +478,12 @@
         background: var(--main-color);
         flex-direction: column;
         gap: 0;
-        padding: 20px;
+        padding: 15px;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         border-radius: 0 0 12px 12px;
         z-index: 1000;
         animation: slideDown 0.3s ease;
+        width: 100%;
     }
 
     .nav_link.active {
@@ -446,19 +507,10 @@
     }
 
     .nav_link a {
-        padding: 15px;
+        padding: 12px 15px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        justify-content: space-between;
-    }
-
-    .nav_link a::after {
-        display: none;
-    }
-
-    .nav_link a:hover {
-        background: rgba(255, 255, 255, 0.1);
-        border-radius: 8px;
-        padding-left: 20px;
+        width: 100%;
+        display: block;
     }
 
     .category_nav {
@@ -466,30 +518,71 @@
         order: -1;
     }
 
-    .category_nav p {
-        font-size: 12px;
-    }
-
-    .category_nav_list {
-        width: 220px;
-        margin: 10px 0 0 10px;
-    }
-
     .sign_regs_icon {
         margin-left: auto;
         gap: 12px;
     }
 
-    .sign_regs_icon a {
-        width: 42px;
-        height: 42px;
+    .mobile_menu_toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--white-color);
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px;
     }
 }
 
-/* Mobile (480px and below) */
-@media (max-width: 480px) {
+/* Mobile Landscape (480px to 600px) */
+@media screen and (max-width: 600px) and (min-width: 481px) {
+    .top_header {
+        height: auto;
+        min-height: 130px;
+    }
+
+    .top_header .container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 10px 15px;
+        gap: 10px;
+    }
+
+    .container .logo {
+        order: 1;
+    }
+
+    .container .logo img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .search_box {
+        order: 3;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .header_icons {
+        order: 2;
+        gap: 15px;
+    }
+
+    .btm_header {
+        top: auto;
+        position: relative;
+        margin-top: 0;
+        padding: 5px 0;
+    }
+
     .btm_header .container {
         padding: 0 10px;
+    }
+
+    .btm_header .nav {
+        gap: 10px;
+        justify-content: space-between;
     }
 
     .category_nav {
@@ -498,13 +591,11 @@
     }
 
     .category_nav p {
-        display: none;
-        /* Hide text on very small screens */
+        font-size: 12px;
     }
 
     .category_nav svg {
         font-size: 20px;
-        margin-right: 0;
     }
 
     .category_nav_list {
@@ -512,19 +603,15 @@
         max-height: 350px;
         left: 50%;
         transform: translate(-50%, -15px);
+        margin: 10px 0 0 0;
     }
 
     .category_nav_list.active {
         transform: translate(-50%, 0);
     }
 
-    .category_nav_list a {
-        padding: 12px 20px;
-        font-size: 14px;
-    }
-
     .sign_regs_icon {
-        gap: 8px;
+        gap: 10px;
     }
 
     .sign_regs_icon a {
@@ -533,23 +620,142 @@
     }
 
     .sign_regs_icon a svg {
-        font-size: 20px;
-    }
-
-    .mobile_menu_toggle {
-        font-size: 22px;
-        padding: 8px;
+        font-size: 18px;
     }
 }
 
-/* Small Mobile (360px and below) */
-@media (max-width: 360px) {
+/* Mobile Portrait (320px to 480px) */
+@media screen and (max-width: 480px) {
+    .top_header {
+        height: auto;
+        min-height: 120px;
+    }
+
+    .top_header .container {
+        flex-direction: column;
+        padding: 8px 12px;
+        gap: 8px;
+    }
+
+    .container .logo img {
+        width: 90px;
+        height: 90px;
+    }
+
+    .search_box {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .search_box input {
+        height: 40px;
+        font-size: 14px;
+        padding: 0 12px;
+    }
+
+    .search_box button {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+    }
+
+    .header_icons {
+        gap: 12px;
+        justify-content: center;
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .header_icons .icon {
+        font-size: 20px;
+    }
+
+    .btm_header {
+        top: auto;
+        position: relative;
+        margin-top: 0;
+        padding: 5px 0;
+    }
+
+    .btm_header .container {
+        padding: 0 8px;
+    }
+
     .category_nav {
         padding: 8px 12px;
+        border-radius: 8px;
+    }
+
+    .category_nav p {
+        display: none;
+    }
+
+    .category_nav svg {
+        font-size: 18px;
+        margin-right: 0;
     }
 
     .category_nav_list {
         width: 180px;
+        max-height: 300px;
+        left: 50%;
+        transform: translate(-50%, -10px);
+        margin: 5px 0 0 0;
+    }
+
+    .sign_regs_icon {
+        gap: 8px;
+    }
+
+    .sign_regs_icon a {
+        width: 38px;
+        height: 38px;
+    }
+
+    .sign_regs_icon a svg {
+        font-size: 16px;
+    }
+
+    .mobile_menu_toggle {
+        font-size: 20px;
+        padding: 6px;
+    }
+}
+
+/* Very Small Mobile (below 320px) */
+@media screen and (max-width: 320px) {
+    .top_header .container {
+        padding: 5px 8px;
+    }
+
+    .container .logo img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .search_box input {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+
+    .header_icons {
+        gap: 8px;
+    }
+
+    .header_icons .icon {
+        font-size: 18px;
+    }
+
+    .btm_header .container {
+        padding: 0 5px;
+    }
+
+    .category_nav {
+        padding: 6px 10px;
+    }
+
+    .category_nav_list {
+        width: 160px;
     }
 
     .sign_regs_icon {
@@ -557,7 +763,7 @@
     }
 
     .sign_regs_icon a {
-        width: 38px;
-        height: 38px;
+        width: 36px;
+        height: 36px;
     }
 }

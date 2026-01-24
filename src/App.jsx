@@ -10,7 +10,6 @@ function App() {
       <header>
         <BtmHeader></BtmHeader>
         <TopHeader></TopHeader>
-
       </header>
       <Home></Home>
 
