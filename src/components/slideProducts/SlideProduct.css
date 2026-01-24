@@ -62,6 +62,7 @@
     margin: 0 auto;
 }
 
+
 .product:hover {
     transform: translateY(-8px);
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
@@ -168,6 +169,16 @@
 .icons span:hover {
     background: var(--main-color);
     color: #fff;
+}
+
+.product.in-cart .icons .btn_addtocart {
+    background-color: var(--main-color);
+    color: var(--white-color);
+
+}
+
+.product.in-cart .icons .btn_addtocart .svg {
+    fill: var(--white-color);
 }
 
 /* ==================== RESPONSIVE BREAKPOINTS ==================== */

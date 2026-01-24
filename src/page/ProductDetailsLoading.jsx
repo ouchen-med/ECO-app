@@ -1,22 +1,25 @@
-import React from 'react'
-import './ProductDetailsLoading.css'
+import React from 'react';
+import './ProductDetailsLoading.css';
 
 export default function ProductDetailsLoading() {
     return (
-        <div className='loading_item'>
-            <div className="item_details">
-                <div className='imgs_item'></div>
-                <div className='details_item'>
-                    <h5 className='loading_TextdetalsItem'></h5>
-                    <h5 className='loading_TextdetalsItem'></h5>
-                    <h5 className='loading_TextdetalsItem'></h5>
-                    <h5 className='loading_TextdetalsItem'></h5>
-                    <h5 className='loading_TextdetalsItem'></h5>
-                    <h5 className='loading_TextdetalsItem'></h5>
+        <div className='loading_wrapper'>
+            <div className="loading_details">
+                <div className="loading_container">
+                    <div className='loading_image'></div>
+                    <div className='loading_content'>
+                        <h5 className='loading_line'></h5>
+                        <h5 className='loading_line'></h5>
+                        <h5 className='loading_line'></h5>
+                        <h5 className='loading_line'></h5>
+                        <h5 className='loading_line'></h5>
+                        <h5 className='loading_line'></h5>
 
+
+                    </div>
                 </div>
-
             </div>
+
         </div>
-    )
+    );
 }

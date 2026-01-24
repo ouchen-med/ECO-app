@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './Header.css'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/logo.png'
 import { FaSearch } from "react-icons/fa";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { BsCartCheck } from "react-icons/bs";
+import { CartContext } from '../context/CartContext';
+
+
 
 export default function TopHeader() {
+    const { cartItems } = useContext(CartContext);
+
     return (
         <div className='top_header'>
             <div className='container'>
@@ -21,8 +26,11 @@ export default function TopHeader() {
                         <span className='count'>0</span>
                     </div>
                     <div className="icon">
-                        <BsCartCheck />
-                        <span className='count'>0</span>
+                        <Link to="/cart">
+                            <BsCartCheck />
+                            <span className='count'>{cartItems.length}</span>
+                        </Link>
+
                     </div>
                 </div>
             </div>
