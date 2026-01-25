@@ -16,20 +16,23 @@ export default function Product({ product }) {
     const { cartItems, addToCart } = useContext(CartContext);
     const isInCart = cartItems.some(i => i.id === product.id);
     const handleAddToCart = () => {
-        addToCart(product);
-        toast.success(
-            <div className='toast-wrapper'>
-                <img src={product.images[0]} alt='Imag_product' />
-                <div className='toast-content'>
-                    <strong>{product.title}</strong>
-                    Added To Cart
-                    <div>
-                        <button className='toast-btn'>View Cart</button>
+        if (!isInCart) {
+            addToCart(product);
+            toast.success(
+                <div className='toast-wrapper'>
+                    <img src={product.images[0]} alt='Imag_product' />
+                    <div className='toast-content'>
+                        <strong>{product.title}</strong>
+                        Added To Cart
+                        <div>
+                            <button className='toast-btn'>View Cart</button>
+                        </div>
                     </div>
                 </div>
-            </div>
-            , { duration: 3500 }
-        )
+                , { duration: 3500 }
+            )
+        }
+
     }
     return (
         <div className={`product ${isInCart ? 'in-cart' : ''}`}>

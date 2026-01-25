@@ -4,7 +4,7 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { CartContext } from '../../components/context/CartContext';
 
 export default function Cart() {
-    const { cartItems, addToCart, removeFromCart, clearCart, removeItem, decreaseQty, increaseQty } = useContext(CartContext);
+    const { cartItems , clearCart, removeItem, decreaseQty, increaseQty } = useContext(CartContext);
 
     // Calculer le total
     const calculateTotal = () => {

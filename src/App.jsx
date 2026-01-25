@@ -5,12 +5,14 @@ import Home from "./page/home/Home"
 import ProductDetails from "./page/ProductDetails"
 import Cart from "./page/cart/Cart"
 import { Toaster } from "react-hot-toast"
+import ScrollToTop from "./ScrollToTop"
 
 
 function App() {
 
   return (
     <>
+      <ScrollToTop></ScrollToTop>
       <header>
         <BtmHeader></BtmHeader>
         <TopHeader></TopHeader>
