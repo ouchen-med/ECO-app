@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import HeroSlider from '../../components/HeroSlider'
 import './Home.css'
 import SlideProduct from '../../components/slideProducts/SlideProduct'
+import PageTransition from '../../components/PageTransition';
 
 const categories = [
     "mobile-accessories",
@@ -69,14 +70,18 @@ export default function Home() {
     }
     return (
         <>
-            <HeroSlider />
-            {categories.map((category) => (
-                <SlideProduct
-                    key={category}
-                    title={category}
-                    products={productsByCategory[category]}
-                />
-            ))}
+            <PageTransition>
+
+                <HeroSlider />
+                {categories.map((category) => (
+                    <SlideProduct
+                        key={category}
+                        title={category}
+                        products={productsByCategory[category]}
+                    />
+                ))}
+            </PageTransition>
+
         </>
     );
 }

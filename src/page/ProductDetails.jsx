@@ -6,6 +6,7 @@ import SlideProduct from '../components/slideProducts/SlideProduct';
 import ProductDetailsLoading from './ProductDetailsLoading';
 import ProductImages from './ProductImages';
 import ProductInfo from './ProductInfo';
+import PageTransition from '../components/PageTransition';
 
 export default function ProductDetails() {
     const { id } = useParams()
@@ -63,29 +64,32 @@ export default function ProductDetails() {
         )
     }
     return (
-        <div className="product_details_page">
-            {/* Product main section */}
-            <div className="item_details">
-                <div className="container">
-                    {/* Images */}
-                    <ProductImages product={product} />
-                    {/* Details */}
-                    <ProductInfo product={product} />
+        <PageTransition>
+            <div className="product_details_page">
+                {/* Product main section */}
+                <div className="item_details">
+                    <div className="container">
+                        {/* Images */}
+                        <ProductImages product={product} />
+                        {/* Details */}
+                        <ProductInfo product={product} />
+                    </div>
+                </div>
+                {/* Related products */}
+                <div className="related_section">
+                    {loadingRelatedProducts ? (
+                        <div className="loading">
+                            <div className="spinner"></div>
+                            <span>Loading related products...</span>
+                        </div>
+                    ) : relatedProducts.length === 0 ? (
+                        <div className="no_products">No related products found</div>
+                    ) : (
+                        <SlideProduct products={relatedProducts} title={product.category} />
+                    )}
                 </div>
             </div>
-            {/* Related products */}
-            <div className="related_section">
-                {loadingRelatedProducts ? (
-                    <div className="loading">
-                        <div className="spinner"></div>
-                        <span>Loading related products...</span>
-                    </div>
-                ) : relatedProducts.length === 0 ? (
-                    <div className="no_products">No related products found</div>
-                ) : (
-                    <SlideProduct products={relatedProducts} title={product.category} />
-                )}
-            </div>
-        </div>
+        </PageTransition>
+
     )
 }

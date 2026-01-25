@@ -62,7 +62,7 @@ export default function CartProvider({ children }) {
     };
 
 
-    // ✅ Clear cart
+    // Clear cart
     const clearCart = () => {
         const confirmClear = window.confirm("Do you really want to clear the cart?");
         if (!confirmClear) return;
@@ -71,7 +71,6 @@ export default function CartProvider({ children }) {
     };
 
 
-    // ✅ Save to localStorage
     useEffect(() => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
     }, [cartItems]);
