@@ -9,7 +9,7 @@ export default function CartProvider({ children }) {
         return savedCart ? JSON.parse(savedCart) : [];
     });
 
-    // ✅ Add to cart (with quantity)
+    // Add to cart (with quantity)
     const addToCart = (item) => {
         setCartItems(prev => {
             const existingItem = prev.find(p => p.id === item.id);
@@ -29,7 +29,7 @@ export default function CartProvider({ children }) {
     //  Remove one item completely
     const removeItem = (id) => {
         const confirmDelete = window.confirm("Do you really want to remove this product?");
-        if (!confirmDelete) return; // إذا ضغط المستخدم على Cancel، ما ندير والو
+        if (!confirmDelete) return;
 
         setCartItems(prev => prev.filter(item => item.id !== id));
     };

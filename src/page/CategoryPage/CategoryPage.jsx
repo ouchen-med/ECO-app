@@ -18,7 +18,7 @@ export default function CategoryPage() {
 
     return (
         <div className='category_container'>
-            <h2 className='category_title'>Category: {category}</h2>
+            <h2 className='category_title'>{category}</h2>
             <div className="products_grid">
                 {categoryProducts.length === 0 ? (
                     <p>Loading products...</p>

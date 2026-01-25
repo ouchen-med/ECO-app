@@ -1,15 +1,12 @@
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
-
 // import required modules
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
 import { Link } from 'react-router-dom';
-
-
+import logo from '../assets/logo.png'
 function HeroSlider() {
 
     return (
@@ -23,30 +20,31 @@ function HeroSlider() {
                     }} pagination={true} modules={[Pagination, Autoplay]} className="mySwiper">
                     <SwiperSlide>
                         <div className="content">
-                            <h4>Introducing the new</h4>
-                            <h3>Microsoft Xbox <br /> 360 Controller</h3>
-                            <p>Windows Xp/10/8 ps3 ,Tv Box</p>
+                            <h4>Welcome to our Online store</h4>
+                            <h3>Discover our  <br /> products </h3>
+                            <p>and enjoy a modern, fast, and secure shopping experience</p>
                             <Link to="/">Shop Now</Link>
                         </div>
-                        <img src="/src/assets/logo.png" alt="logo" />
+                        <img src={logo} alt="logo" />
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="content">
-                            <h4>Introducing the new</h4>
-                            <h3>Microsoft Xbox <br /> 360 Controller</h3>
-                            <p>Windows Xp/10/8 ps3 ,Tv Box</p>
+                            <h4>Welcome to our Online store</h4>
+                            <h3>Discover our  <br /> products </h3>
+                            <p>and enjoy a modern, fast, and secure shopping experience</p>
                             <Link to="/">Shop Now</Link>
                         </div>
-                        <img src="/src/assets/logo.png" alt="logo" />
+                        <img src={logo} alt="logo" />
                     </SwiperSlide>
                     <SwiperSlide>
                         <div className="content">
-                            <h4>Introducing the new</h4>
-                            <h3>Microsoft Xbox <br /> 360 Controller</h3>
-                            <p>Windows Xp/10/8 ps3 ,Tv Box</p>
+                            <h4>Welcome to our Online store</h4>
+                            <h3>Discover our  <br /> products </h3>
+                            <p>and enjoy a modern, fast, and secure shopping experience</p>
                             <Link to="/">Shop Now</Link>
                         </div>
-                        <img src="/src/assets/logo.png" alt="logo" />
+                        <img src={logo} alt="logo" />
+
                     </SwiperSlide>
                 </Swiper>
             </div>
