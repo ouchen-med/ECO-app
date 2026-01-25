@@ -6,6 +6,7 @@ import { FaRegHeart } from "react-icons/fa";
 import { LuSend } from "react-icons/lu";
 import { Link } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
+import toast from 'react-hot-toast';
 
 
 
@@ -13,10 +14,25 @@ import { CartContext } from '../context/CartContext';
 export default function Product({ product }) {
 
     const { cartItems, addToCart } = useContext(CartContext);
-
-    const isInCart = cartItems.some(i => i.id === product.id)
+    const isInCart = cartItems.some(i => i.id === product.id);
+    const handleAddToCart = () => {
+        addToCart(product);
+        toast.success(
+            <div className='toast-wrapper'>
+                <img src={product.images[0]} alt='Imag_product' />
+                <div className='toast-content'>
+                    <strong>{product.title}</strong>
+                    Added To Cart
+                    <div>
+                        <button className='toast-btn'>View Cart</button>
+                    </div>
+                </div>
+            </div>
+            , { duration: 3500 }
+        )
+    }
     return (
-        <div className={`product ${isInCart ? 'in-cart': ''}`}>
+        <div className={`product ${isInCart ? 'in-cart' : ''}`}>
             <Link to={`/products/${product.id}`}>
                 <div className='img_product'>
                     <img src={product.images[0]} alt="product image" width="100px" />
@@ -33,7 +49,7 @@ export default function Product({ product }) {
                 <p className='price'>${product.price}</p>
             </Link >
             <div className='icons'>
-                <span className="btn_addtocart" onClick={() => addToCart(product)}><MdShoppingCartCheckout />
+                <span className="btn_addtocart" onClick={handleAddToCart}><MdShoppingCartCheckout />
                 </span>
                 <span><FaRegHeart />
                 </span>

@@ -26,7 +26,7 @@ export default function CartProvider({ children }) {
         });
     };
 
-    // ✅ Remove one item completely
+    //  Remove one item completely
     const removeItem = (id) => {
         const confirmDelete = window.confirm("Do you really want to remove this product?");
         if (!confirmDelete) return; // إذا ضغط المستخدم على Cancel، ما ندير والو
@@ -35,7 +35,7 @@ export default function CartProvider({ children }) {
     };
 
 
-    // ✅ Increase quantity
+    //  Increase quantity
     const increaseQty = (id) => {
         setCartItems(prev =>
             prev.map(item =>
@@ -46,7 +46,7 @@ export default function CartProvider({ children }) {
         );
     };
 
-    // ✅ Decrease quantity
+    //  Decrease quantity
     const decreaseQty = (id) => {
         setCartItems(prev =>
             prev.map(item =>
